@@ -1,8 +1,12 @@
 import uvicorn
+import os
 from fastapi import FastAPI, Body
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Optional
 from uuid import UUID
+
+from dotenv import load_dotenv
+load_dotenv()
 
 from app.schemas import *
 from app.routers import users_router, driver_profiles_router, customer_profiles_router, \
@@ -28,6 +32,9 @@ app.add_middleware(
 from app.services.ai_logistics_engine import AILogisticsEngine, get_ai_engine
 ai_engine = get_ai_engine()
 
+# Load API keys from environment
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+RAILWAY_API_KEY = os.getenv("RAILWAY_API_KEY")
 
 def get_db():
     db = next(get_db_session())

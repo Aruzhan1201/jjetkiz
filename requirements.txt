@@ -1,0 +1,17 @@
+# Core FastAPI framework
+fastapi>=0.115.6
+uvicorn[standard]>=0.34.0
+
+# Database
+sqlalchemy>=2.0.50
+alembic>=1.14.1
+
+# Pydantic for data validation
+pydantic>=2.12.5
+pydantic-settings>=2.7.0
+
+# Environment variables
+python-dotenv>=1.0.1
+
+# Optional: CORS support (built into FastAPI but good to pin)
+starlette>=0.45.2
