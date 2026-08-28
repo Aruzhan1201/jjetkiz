@@ -13,7 +13,7 @@ router = APIRouter(prefix="/orders", tags=["orders"])
 
 
 def get_db():
-    return get_db_session()
+    yield from get_db_session()
 
 
 @router.get("/", response_model=List[OrderSchema])

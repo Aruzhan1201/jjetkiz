@@ -15,7 +15,7 @@ router = APIRouter(prefix="/order-offers", tags=["order-offers"])
 
 
 def get_db():
-    return get_db_session()
+    yield from get_db_session()
 
 
 @router.get("/", response_model=List[OrderOfferSchema])

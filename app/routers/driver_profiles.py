@@ -13,7 +13,7 @@ router = APIRouter(prefix="/driver-profiles", tags=["driver-profiles"])
 
 
 def get_db():
-    return get_db_session()
+    yield from get_db_session()
 
 
 @router.get("/", response_model=List[DriverProfileSchema])

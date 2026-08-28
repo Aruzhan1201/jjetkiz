@@ -14,7 +14,7 @@ router = APIRouter(prefix="/refresh-tokens", tags=["refresh-tokens"])
 
 
 def get_db():
-    return get_db_session()
+    yield from get_db_session()
 
 
 @router.get("/", response_model=List[RefreshTokenSchema])

@@ -14,7 +14,7 @@ router = APIRouter(prefix="/tracking-points", tags=["tracking-points"])
 
 
 def get_db():
-    return get_db_session()
+    yield from get_db_session()
 
 
 @router.get("/", response_model=List[TrackingPointSchema])
